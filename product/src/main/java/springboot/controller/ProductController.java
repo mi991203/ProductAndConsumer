@@ -31,7 +31,7 @@ public class ProductController {
 
     // 工作线程
     final Thread thread = new Thread(() -> {
-        // 每隔10s产生100个对象
+        // 每隔5s产生100个对象
         final List<Person> taskList = IntStream.range(0, 100).mapToObj(i -> new Person("Jack-" + i, "Jack-" + i + "的个人介绍", i))
                 .collect(Collectors.toList());
         distributeTask(taskList);
@@ -42,7 +42,7 @@ public class ProductController {
         if (scheduledExecutorService == null) {
             scheduledExecutorService = Executors.newScheduledThreadPool(1);
         }
-        scheduledExecutorService.scheduleAtFixedRate(thread, 0, 10, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(thread, 0, 5, TimeUnit.SECONDS);
         return "任务开启";
     }
 

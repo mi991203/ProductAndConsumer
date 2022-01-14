@@ -3,13 +3,13 @@ package springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableAsync
+@EnableFeignClients
 @EnableDiscoveryClient
-public class Consumer1Application {
+public class BusinessApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Consumer1Application.class, args);
+        SpringApplication.run(BusinessApplication.class, args);
     }
 }

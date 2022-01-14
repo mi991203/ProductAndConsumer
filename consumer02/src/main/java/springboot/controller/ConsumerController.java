@@ -1,12 +1,14 @@
 package springboot.controller;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springboot.domain.bean.Person;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -18,6 +20,7 @@ import java.util.stream.IntStream;
  * 多个线程同时读取pipeline里面的数据，需要保证读pipeline中size和数据的原子性
  */
 @RestController
+@Slf4j
 public class ConsumerController {
     @Autowired
     @Qualifier("thread-pool-product")
@@ -49,8 +52,8 @@ public class ConsumerController {
 
     @GetMapping("start-consume")
     public String startConsume() {
-        // 延时0毫秒，每50毫秒间隔执行一次
-        scheduledExecutorService.scheduleWithFixedDelay(thread, 0, 300, TimeUnit.MILLISECONDS);
+        // 延时0毫秒，每5000毫秒间隔执行一次
+        scheduledExecutorService.scheduleWithFixedDelay(thread, 0, 5000, TimeUnit.MILLISECONDS);
         return "开启成功";
     }
 
@@ -58,5 +61,12 @@ public class ConsumerController {
     public String stopConsume() {
         scheduledExecutorService.shutdown();
         return "消费任务终止";
+    }
+
+    @GetMapping("get-one-person")
+    public Person getOnePerson() {
+        log.info("消费者2获取请求，处理中");
+        final Person person = (Person) redisTemplate.opsForList().rightPop("pipeline");
+        return person;
     }
 }
