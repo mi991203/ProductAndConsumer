@@ -16,6 +16,11 @@ spring:
         # 最小空闲连接
         min-idle: 0
     host: 127.0.0.1
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:

@@ -10,6 +10,7 @@
         <module name="consumer01" />
         <module name="eureka_1" />
         <module name="product" />
+        <module name="common" />
         <module name="eureka_2" />
         <module name="Bussiness" />
         <module name="consumer02" />
@@ -26,6 +27,7 @@
       <module name="Business" options="-parameters" />
       <module name="Bussiness" options="-parameters" />
       <module name="Product" options="-parameters" />
+      <module name="common" options="-parameters" />
       <module name="consumer01" options="-parameters" />
       <module name="consumer02" options="-parameters" />
       <module name="eureka_1" options="-parameters" />

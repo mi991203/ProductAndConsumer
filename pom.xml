@@ -11,6 +11,7 @@
         <module>consumer01</module>
         <module>consumer02</module>
         <module>Business</module>
+        <module>common</module>
     </modules>
 
     <groupId>com.shao</groupId>
