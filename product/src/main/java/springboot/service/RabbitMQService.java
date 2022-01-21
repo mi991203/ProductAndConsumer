@@ -1,5 +1,9 @@
 package springboot.service;
 
 public interface RabbitMQService {
-    String sendMsg(String msg);
+    String sendDirectMsg(String msg);
+
+    String sendFanoutMsg(String msg);
+
+    String sendTopicMsg(String msg, String routingKey);
 }

@@ -11,28 +11,27 @@
         <module name="eureka_1" />
         <module name="product" />
         <module name="common" />
+        <module name="business" />
         <module name="eureka_2" />
-        <module name="Bussiness" />
+        <module name="redis_lock" />
         <module name="consumer02" />
-        <module name="Business" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Business" target="8" />
       <module name="Product" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Business" options="-parameters" />
-      <module name="Bussiness" options="-parameters" />
       <module name="Product" options="-parameters" />
+      <module name="business" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="consumer01" options="-parameters" />
       <module name="consumer02" options="-parameters" />
       <module name="eureka_1" options="-parameters" />
       <module name="eureka_2" options="-parameters" />
       <module name="product" options="-parameters" />
+      <module name="redis_lock" options="-parameters" />
     </option>
   </component>
 </project>

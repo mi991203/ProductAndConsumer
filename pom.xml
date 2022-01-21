@@ -12,6 +12,7 @@
         <module>consumer02</module>
         <module>Business</module>
         <module>common</module>
+        <module>redis_lock</module>
     </modules>
 
     <groupId>com.shao</groupId>

@@ -17,8 +17,20 @@ public class RabbitMQController {
      * 发送消息
      * @author java技术爱好者
      */
-    @PostMapping("/sendMsg")
-    public String sendMsg(@RequestParam(name = "msg") String msg) {
-        return rabbitMQService.sendMsg(msg);
+    @PostMapping("/sendDirectMsg")
+    public String sendDirectMsg(@RequestParam(name = "msg") String msg) {
+        return rabbitMQService.sendDirectMsg(msg);
     }
+
+    @PostMapping("sendFanoutMsg")
+    public String sendFanoutMsg(@RequestParam(name = "msg") String msg) {
+        return rabbitMQService.sendFanoutMsg(msg);
+    }
+
+    @PostMapping("sendTopicMsg")
+    public String sendTopicMsg(@RequestParam(name = "msg") String msg, @RequestParam("routingKey") String routingKey) {
+        return rabbitMQService.sendTopicMsg(msg, routingKey);
+    }
+
+
 }

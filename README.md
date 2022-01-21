@@ -6,4 +6,7 @@
 
 ## 在business模块openfeign调用consumer模块的接口
 
+## redis_lock模块模拟的是redis分布式锁，实现是两个消费线程必须依次消费redis队列中的商品（因为rabbitmq中的消息在集群模式下仅仅只会被消费一次，这样起始也就实现了锁）
+
+
 
